@@ -172,8 +172,7 @@ public class HashChecker
      */
     public boolean withSCrypt()
     {
-        SCryptFunction scrypt = AlgorithmFinder.getSCryptInstance();
-        return with(scrypt);
+        return with(SCryptFunction.getInstanceFromHash(hashed));
     }
 
     /**
