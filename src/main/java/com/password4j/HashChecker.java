@@ -189,7 +189,9 @@ public class HashChecker
      */
     public boolean withBCrypt()
     {
-        return with(AlgorithmFinder.getBCryptInstance());
+		char minor = hashed.charAt(2);
+		String rounds = hashed.replaceFirst("\\$.{2}\\$([0-9]+)\\$.*", "$1");
+        return with(BCryptFunction.getInstance(BCrypt.valueOf(minor), Integer.parseInt(rounds)));
     }
 
     /**
